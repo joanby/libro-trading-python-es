@@ -1,5 +1,6 @@
 # Python para finanzas y trading algorítmico (Segunda Edición)
 **Aprendizaje automático, aprendizaje profundo, análisis de series temporales, gestión de riesgos y carteras para MetaTrader 5 Live Trading**
+
 📚Consigue el libro en:https://www.amazon.com/dp/B0BT4ZS9Q3?ref_=pe_3052080_276849420
 
 Esta segunda versión nos ha permitido retocar algunos puntos de los capítulos existentes, pero sobre todo añadir **3 nuevos capítulos** basándonos en vuestros comentarios de la primera versión. Así que estoy orgulloso de ofrecerte 3 nuevos capítulos: **"Métodos avanzados de backtest "**, **"Características e ingeniería de objetivos "** y **"De cero  un bot de trading en vivo "**. **El libro presenta los beneficios de la gestión de carteras, la estadística y el aprendizaje automático aplicados al trading en vivo con MetaTrader™ 5**. 
