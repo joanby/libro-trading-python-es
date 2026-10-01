@@ -1,6 +1,6 @@
 # Python para finanzas y trading algorítmico (Segunda Edición)
 
-> **🆕 Octubre de 2026 — rama [`update-2026`](https://github.com/joanby/libro-trading-python-es/tree/update-2026):** el mismo código del curso, adaptado a las librerías de hoy (yfinance, pandas 3, matplotlib). Con las versiones actuales, el código de esta rama principal falla al descargar precios con `yf.download`. Qué ha cambiado y por qué: [`CAMBIOS-2026.md`](https://github.com/joanby/libro-trading-python-es/blob/update-2026/CAMBIOS-2026.md).
+> **🆕 Octubre de 2026 — rama [`update-2026`](https://github.com/joanby/libro-trading-python-es/tree/update-2026):** el mismo código del libro, adaptado a las librerías de hoy (yfinance, pandas 3, matplotlib). Con las versiones actuales, el código de esta rama principal falla al descargar precios con `yf.download`. Qué ha cambiado y por qué: [`CAMBIOS-2026.md`](https://github.com/joanby/libro-trading-python-es/blob/update-2026/CAMBIOS-2026.md).
 
 **Aprendizaje automático, aprendizaje profundo, análisis de series temporales, gestión de riesgos y carteras para MetaTrader 5 Live Trading**
 
