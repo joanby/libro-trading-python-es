@@ -3,7 +3,7 @@ import yfinance as yf
 import numpy as np
 from scipy.optimize import minimize
 import matplotlib.pyplot as plt
-plt.style.use('seaborn')
+plt.style.use('seaborn-v0_8')
 import matplotlib as mpl
 
 
@@ -23,7 +23,7 @@ def backtest_static_portfolio(weights, database, ben="^GSPC", timeframe=252, CR=
     import numpy as np
     from scipy.optimize import minimize
     import matplotlib.pyplot as plt
-    plt.style.use('seaborn')
+    plt.style.use('seaborn-v0_8')
 
 
     # Compute the portfolio
@@ -34,7 +34,7 @@ def backtest_static_portfolio(weights, database, ben="^GSPC", timeframe=252, CR=
 
     ######################### COMPUTE THE BETA ##################################
     # Importation of benchmark
-    benchmark = yf.download(ben)["Adj Close"].pct_change(1).dropna()
+    benchmark = yf.download(ben, period="max", auto_adjust=False, multi_level_index=False)["Adj Close"].pct_change(1).dropna()
 
     # Concat the asset and the benchmark
     join = pd.concat((portfolio, benchmark), axis=1).dropna()
@@ -112,7 +112,7 @@ def backtest_static_portfolio(weights, database, ben="^GSPC", timeframe=252, CR=
         crs = []
         for i in range(l):
             # Importation of benchmark
-            benchmark = yf.download(ben)["Adj Close"].pct_change(1).dropna()
+            benchmark = yf.download(ben, period="max", auto_adjust=False, multi_level_index=False)["Adj Close"].pct_change(1).dropna()
 
             # Concat the asset and the benchmark
             join = pd.concat((database.iloc[:,i], benchmark), axis=1).dropna()
@@ -194,7 +194,7 @@ def backtest_dynamic_portfolio(dfc, ben="^GSPC", timeframe=252):
   import numpy as np
   from scipy.optimize import minimize
   import matplotlib.pyplot as plt
-  plt.style.use('seaborn')
+  plt.style.use('seaborn-v0_8')
   import matplotlib as mpl
   import matplotlib.pyplot as plt
 
@@ -216,7 +216,7 @@ def backtest_dynamic_portfolio(dfc, ben="^GSPC", timeframe=252):
   portfolio = portfolio.set_index("Time")
   ######################### COMPUTE THE BETA ##################################
   # Importation of benchmark
-  benchmark = yf.download(ben)["Adj Close"].pct_change(1).dropna()
+  benchmark = yf.download(ben, period="max", auto_adjust=False, multi_level_index=False)["Adj Close"].pct_change(1).dropna()
 
   # Concat the asset and the benchmark
   join = pd.concat((portfolio, benchmark), axis=1).dropna()
@@ -347,7 +347,7 @@ def backtest_tpsl_portfolio(dfc, ben="^GSPC", timeframe=252):
 
     ######################### COMPUTE THE BETA ##################################
     # Importation of benchmark
-    benchmark = yf.download(ben)["Adj Close"].pct_change(1).dropna()
+    benchmark = yf.download(ben, period="max", auto_adjust=False, multi_level_index=False)["Adj Close"].pct_change(1).dropna()
 
     # Concat the asset and the benchmark
     join = pd.concat((portfolio[["returns"]], benchmark), axis=1).dropna()
@@ -373,13 +373,13 @@ def backtest_tpsl_portfolio(dfc, ben="^GSPC", timeframe=252):
     ######################### COMPUTE THE SHARPE ################################
     mean = portfolio.mean() * np.sqrt(timeframe)
     std = portfolio.std() 
-    Sharpe = (mean/std)[0]
+    Sharpe = (mean/std).iloc[0]
 
 
     ######################### COMPUTE THE SORTINO ###############################
     downward = portfolio[portfolio<0]* np.sqrt(timeframe)
     std_downward = downward.std()
-    Sortino = (mean/std_downward)[0]
+    Sortino = (mean/std_downward).iloc[0]
 
 
     ######################### COMPUTE THE DRAWDOWN ###############################
@@ -393,7 +393,7 @@ def backtest_tpsl_portfolio(dfc, ben="^GSPC", timeframe=252):
 
     # Compute the drawdown
     drawdown = ((coef_rets/running_max) - 1)
-    min_drawdon = (-drawdown.min())[0]
+    min_drawdon = (-drawdown.min()).iloc[0]
 
     ######################### COMPUTE THE VaR ##################################
     theta = 0.01
